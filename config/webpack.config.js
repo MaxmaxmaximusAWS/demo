@@ -20,7 +20,7 @@ module.exports = (mode) => {
 
   return {
     mode: mode,
-    devtool: isDevelopment ? 'eval-source-map' : false,
+    devtool: isDevelopment ? 'source-map' : false,
     entry: {
       index: path.resolve(__dirname, `${src}/index.tsx`),
     },
