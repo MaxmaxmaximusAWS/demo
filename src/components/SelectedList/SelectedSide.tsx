@@ -8,12 +8,12 @@ interface SelectedSideProps {
 
 const SelectedSide: FC<SelectedSideProps> = ({ side }) => {
   const { name } = side.userData
-  const color = side.material['color'].getHexString()
+  const color = `#` + side.material['color'].getHexString()
 
   return (
-    <div className={styles.host}>
-      <div className={styles.info}>Имя: {name}</div>
-      <div className={styles.info}>Цвет: #{color}</div>
+    <div className={styles.host} style={{ backgroundColor: color }}>
+      <div>Имя: {name}</div>
+      <div>Цвет: {color}</div>
     </div>
   )
 }

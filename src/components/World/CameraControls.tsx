@@ -7,16 +7,15 @@ const CameraControls: FC = () => {
   const [controls, setControls] = useState<any>()
 
   useFrame(() => {
-    // @ts-ignore
     controls['update']()
   })
 
   useEffect(() => {
     var controls = new OrbitControls(three.camera, three.gl.domElement)
     controls.enableDamping = true
-    controls.dampingFactor = 0.1
+    controls.dampingFactor = 0.05
     controls.enableKeys = false
-    controls.enableZoom = false
+    // controls.enableZoom = false
     controls.rotateSpeed = 0.8
 
     setControls(controls)
@@ -30,4 +29,3 @@ const CameraControls: FC = () => {
 }
 
 export default CameraControls
-

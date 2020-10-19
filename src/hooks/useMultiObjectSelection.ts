@@ -1,8 +1,8 @@
 import * as THREE from 'three'
+import { useFrame, useThree } from 'react-three-fiber'
+import SelectionBox from '../lib/SelectionBox'
 import { useEffect } from 'react'
-import { SelectionBox } from 'three/examples/jsm/interactive/SelectionBox'
 import SelectionHelper from '../lib/SelectionHelper'
-import { useThree } from 'react-three-fiber'
 
 interface MultiObjectSelectionOptions {
   enabled?: boolean
@@ -13,6 +13,14 @@ interface MultiObjectSelectionOptions {
 const useMultiObjectSelection = (options: MultiObjectSelectionOptions) => {
   const { enabled = true, selectionCssClass, onChange } = options
   const three = useThree()
+
+  // useFrame(() => {
+  //   const selectionBox = new SelectionBox(three.camera, three.scene)
+  //   const allSelected = selectionBox.select()
+  //   console.log('allSelected', allSelected)
+  // })
+
+
 
   useEffect(() => {
     if (!enabled) {

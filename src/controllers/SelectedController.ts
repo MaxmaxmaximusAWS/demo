@@ -37,13 +37,13 @@ class SelectedController {
 
   selectSide = (side) => {
     if (this.isSelected(side)) return
-    side.material.emissive.set(0x555555)
+    side.material.emissive?.set(0x555555)
     this.selectedSides = [...this.selectedSides, side]
   }
 
   unselectSide = (side) => {
     if (!this.isSelected(side)) return
-    side.material.emissive.set(0x000000)
+    side.material.emissive?.set(0x000000)
     this.selectedSides = this.selectedSides.filter(
       (selectedSide) => selectedSide !== side
     )
