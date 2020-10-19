@@ -154,13 +154,6 @@ SelectionBox.prototype.updateFrustum = function (startPoint, endPoint) {
 SelectionBox.prototype.searchChildInFrustum = function (frustum, object) {
   if (object.isMesh || object.isLine || object.isPoints) {
     if (object.material !== undefined) {
-      // if (object.geometry.boundingBox === null)
-      //   object.geometry.computeBoundingBox()
-      //
-      // if (frustum.intersectsBox(object.geometry.boundingBox)) {
-      //   this.collection.push(object)
-      // }
-
       center.copy(object.geometry.boundingSphere.center)
       center.applyMatrix4(object.matrixWorld)
 
