@@ -154,23 +154,19 @@ SelectionBox.prototype.updateFrustum = function (startPoint, endPoint) {
 SelectionBox.prototype.searchChildInFrustum = function (frustum, object) {
   if (object.isMesh || object.isLine || object.isPoints) {
     if (object.material !== undefined) {
-      if (object.geometry.boundingBox === null)
-        object.geometry.computeBoundingBox()
+      // if (object.geometry.boundingBox === null)
+      //   object.geometry.computeBoundingBox()
+      //
+      // if (frustum.intersectsBox(object.geometry.boundingBox)) {
+      //   this.collection.push(object)
+      // }
 
-      if (frustum.intersectsBox(object.geometry.boundingBox)) {
+      center.copy(object.geometry.boundingSphere.center)
+      center.applyMatrix4(object.matrixWorld)
+
+      if (frustum.containsPoint(center)) {
         this.collection.push(object)
       }
-
-      // if (object.geometry.boundingSphere === null)
-      //   object.geometry.computeBoundingSphere()
-
-      // if (frustum.intersectsSphere(object.geometry.boundingSphere)) {
-      //   this.collection.push(object)
-      // }
-
-      // if (frustum.containsPoint(center)) {
-      //   this.collection.push(object)
-      // }
     }
   }
 
